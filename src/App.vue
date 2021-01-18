@@ -11,12 +11,14 @@
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+  background-color: #42b983;
   text-align: center;
-  color: #2c3e50;
+  color: #fff;
 }
 
 #nav {
-  padding: 30px;
+  padding: 10px;
 
   a {
     font-weight: bold;
