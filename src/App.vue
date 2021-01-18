@@ -12,7 +12,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   width: 100%;
-  background-color: #42b983;
+  background-color: #646a70;
   text-align: center;
   color: #fff;
 }
