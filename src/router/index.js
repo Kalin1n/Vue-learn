@@ -1,6 +1,7 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 //import Home from "../views/Home.vue";
 import TaskList from "../views/TaskList.vue";
+import CounterPage from "../views/Counter.vue";
 
 const routes = [
   {
@@ -16,6 +17,11 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/About.vue")
+  },
+  {
+    path: "/counter",
+    name: "Counter",
+    component: CounterPage
   }
 ];
 

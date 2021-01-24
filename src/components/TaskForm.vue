@@ -2,6 +2,10 @@
   <form>
     <input type="text" placeholder="Task" v-model="task" />
     <button v-on:click.prevent="createTask">Create task</button>
+    <p v-if="preview.length > 5">
+      Task to be added : {{ preview }}, will be undone
+    </p>
+    <p v-else>Start input task to a field</p>
   </form>
 </template>
 
@@ -10,13 +14,24 @@ export default {
   name: "TaskForm",
   data() {
     return {
-      task: ""
+      task: "",
+      preview: ""
     };
+  },
+  watch: {
+    task(value) {
+      this.preview = value;
+    }
   },
   emits: ["addTask"],
   methods: {
     createTask() {
       this.$emit("addTask", { newTask: this.task });
+      this.task = "";
+    },
+    changeListener() {
+      // No logic just trashes the console
+      console.log("Current task input field state : ", this.task);
     }
   }
 };

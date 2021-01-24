@@ -2,7 +2,13 @@
   <div class="taskListWrapper">
     <TaskForm v-on:addTask="addTask" />
     <hr />
-    <Tasks v-bind:tasks="taskList" v-on:updateTaskList="updateTaskList" />
+
+    <h2 v-if="taskList.length === 0">No actual tasks</h2>
+    <div v-else>
+      <p>Tasks in list : {{ countTasks() }}</p>
+      <p>Completed tasks : {{ countCompleted() }}</p>
+      <Tasks v-bind:tasks="taskList" v-on:updateTaskList="updateTaskList" />
+    </div>
   </div>
 </template>
 
@@ -34,6 +40,16 @@ export default {
         text: newTask,
         completed: false
       });
+    },
+    countTasks() {
+      return this.taskList.length;
+    },
+    countCompleted() {
+      return this.taskList.filter(({ completed }) => {
+        if (completed) {
+          return completed;
+        }
+      }).length;
     }
   }
 };
